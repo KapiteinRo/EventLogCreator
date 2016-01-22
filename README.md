@@ -1,7 +1,7 @@
 EventLogCreator
 ===============
 
-Simple tool to create Windows Eventlogs for your .NET applications under *'Applications and Services Logs'*.
+Simple tool to create Windows [Eventlogs](https://en.wikipedia.org/wiki/Event_Viewer) for your .NET applications under *'Applications and Services Logs'*.
 
 ## Usage
 Just open a commandline prompt in Administrator-mode, and punch the following:
@@ -25,7 +25,7 @@ using (EventLog log = new EventLog { Source = "MyLog1" })
 **Note:** EventId's are a short integer type, so maximum value is 65535.
 
 ## Contributing
-Yes, I would love me some pull requests. If you do, please update the AUTHORS file as well.
+Yes, I would love me some pull requests. If you do, please update the [AUTHORS](https://github.com/KapiteinRo/EventLogCreator/blob/master/AUTHORS.md) file as well.
 
 #### Features I would love to add
 
@@ -41,4 +41,5 @@ Yes, I would love me some pull requests. If you do, please update the AUTHORS fi
 
 ## License
 Copyright (c) 2016 Royi Eltink
-License: MIT
+
+License: [MIT](https://github.com/KapiteinRo/EventLogCreator/blob/master/LICENSE)
