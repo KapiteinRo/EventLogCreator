@@ -44,6 +44,7 @@
     <Compile Include="classes\Helpers\ExpandableString.cs" />
     <Compile Include="classes\Helpers\InstallException.cs" />
     <Compile Include="classes\Helpers\NCUI\NCW.cs" />
+    <Compile Include="classes\LogConfig.cs" />
     <Compile Include="classes\LogCreate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

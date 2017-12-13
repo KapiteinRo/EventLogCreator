@@ -45,9 +45,12 @@ namespace EventLogCreator.classes
         /// <summary>
         /// Check the properties
         /// </summary>
-        public void Prepare()
+        /// <param name="cfg"></param>
+        public void Prepare(LogConfig cfg)
         {
-            if (LogName.Length > 8) throw new PrepareInstallException(LogName + " is too long, maximum 8 characters.");
+            if (LogName.Length > 8 && !cfg.OverrideMaximumLength) throw new PrepareInstallException(LogName + " is too long, maximum 8 characters.");
+            if (LogName.Length > 8 && cfg.OverrideMaximumLength) NCW.Warning(LogName + " is longer than 8 characters, but will be ignored.");
+
             if (EventLog.Exists(LogName)) throw new PrepareInstallException(LogName + " already exists in the eventlogs.");
             // if (File.FileExists) throw new PrepareInstallException(LogName + " already exist."); // not necessary, really
             if (!EventMessageFile.FileExists) throw new PrepareInstallException(EventMessageFile.AbsoluteValue + " does not exist.");

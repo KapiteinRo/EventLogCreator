@@ -2,6 +2,7 @@
 using EventLogCreator.classes;
 using EventLogCreator.classes.Helpers;
 using EventLogCreator.classes.Helpers.NCUI;
+using System.Collections.Generic;
 
 namespace EventLogCreator
 {
@@ -14,14 +15,17 @@ namespace EventLogCreator
                 Console.WriteLine("Usage: " + AppDomain.CurrentDomain.FriendlyName + " [LOGNAME1 [LOGNAME2 ...]]");
                 Console.WriteLine("\r\n\tCreate windows eventlogs under the Application and Services Logs.");
                 Console.WriteLine("\tPlease note that a logname cannot contain more than 8 characters.");
+                Console.WriteLine("\tUnless overridden with the /L option.");
                 return;
             }
 
+            LogConfig config = new LogConfig();
+            List<string> arguments = config.ParseArguments(args);
+
             // Usage: EventLogCreator [Name] will create an eventlog
-            string sTmp = "TestLog1";
             try
             {
-                foreach (string sLogName in args)
+                foreach (string sLogName in arguments)
                 {
                     LogCreate lc = new LogCreate(sLogName);
 
@@ -30,7 +34,7 @@ namespace EventLogCreator
                     NCW.Status(NCStatus.OK);
 
                     NCW.Print("Checking requirements for " + lc.LogName);
-                    lc.Prepare();
+                    lc.Prepare(config);
                     NCW.Status(NCStatus.OK);
 
                     NCW.Print("Going to create eventlog " + lc.LogName);

@@ -10,6 +10,8 @@ Just open a commandline prompt in Administrator-mode, and punch the following:
 > EventLogCreator MyLog1 MyLog2
 ```
 
+**Note:** The maximum length of an eventlog filename is 8 characters. You can override the check by using the `/L` flag.
+
 And then you can use it in your code:
 
 ### C# example
